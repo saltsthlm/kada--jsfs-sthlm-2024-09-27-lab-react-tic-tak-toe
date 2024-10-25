@@ -6,22 +6,22 @@ import { GameState, SquareArray } from './types';
 
 describe('Tic Tac Toe', () => {
   describe('initial state', () => {
-    test.skip('initialize history with one record', () => {
+    test('initialize history with one record', () => {
       const { history } = initialState();
       expect(history.length).toEqual(1);
     });
 
-    test.skip('initial history state should be an empty board', () => {
+    test('initial history state should be an empty board', () => {
       const { history } = initialState();
       expect(history[0].squares).toEqual(Array(9).fill(null));
     });
 
-    test.skip('initial step number must be 0', () => {
+    test('initial step number must be 0', () => {
       const { stepNumber } = initialState();
       expect(stepNumber).toEqual(0);
     });
 
-    test.skip('game should start with player X', () => {
+    test('game should start with player X', () => {
       expect(initialState().xIsNext).toBeTruthy();
     });
   });
