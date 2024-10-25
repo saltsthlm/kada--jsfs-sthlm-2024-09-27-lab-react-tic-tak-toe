@@ -35,23 +35,23 @@ describe('Tic Tac Toe', () => {
       s2 = move(5, s1);
     });
 
-    test.skip('increment stepNumber', () => {
+    test('increment stepNumber', () => {
       expect(s1.stepNumber).toEqual(1);
       expect(s2.stepNumber).toEqual(2);
     });
 
-    test.skip('swap "next player"', () => {
+    test('swap "next player"', () => {
       expect(s1.xIsNext).toBeFalsy();
       expect(s2.xIsNext).toBeTruthy();
     });
 
-    test.skip('build squares array', () => {
+    test('build squares array', () => {
       const currentBoard = s2.history[s2.stepNumber].squares;
       expect(currentBoard[0]).toEqual('X');
       expect(currentBoard[5]).toEqual('O');
     });
 
-    test.skip('show current move', () => {
+    test('show current move', () => {
       expect(currentMove(s2)).toEqual(s2.history[s2.stepNumber]);
     });
 
