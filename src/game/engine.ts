@@ -11,8 +11,8 @@ function initialState() {
   ];
   return { history, stepNumber, xIsNext };
 }
-function currentMove(s: GameState){
-  return s.history[s.stepNumber]
+function currentMove(s: GameState) {
+  return s.history[s.stepNumber];
 }
 
 function move(pm: number, s: GameState): GameState {
@@ -29,9 +29,9 @@ function move(pm: number, s: GameState): GameState {
     xIsNext: !s.xIsNext,
   };
 }
-function calculateWinner(s: Array<string>){
-  if(s.length === 0){
-    return null
+function calculateWinner(s: Array<string>) {
+  if (s.length === 0) {
+    return null;
   }
   const winningCombinations = [
     [0, 1, 2],
@@ -41,19 +41,19 @@ function calculateWinner(s: Array<string>){
     [0, 3, 6],
     [1, 4, 7],
     [2, 5, 8],
-    [2, 4, 6]
+    [2, 4, 6],
   ];
-  for (let i = 0; i < winningCombinations.length; i++){
+  for (let i = 0; i < winningCombinations.length; i++) {
     const [a, b, c] = winningCombinations[i];
-    if(s[a] && s[a] === s[b] && s[a] === s[c]){
+    if (s[a] && s[a] === s[b] && s[a] === s[c]) {
       return s[a];
     }
   }
   return null;
-} 
-function jumpTo(step:number, currentS:GameState){
-  currentS.stepNumber = step
-  return currentS
+}
+function jumpTo(step: number, currentS: GameState) {
+  currentS.stepNumber = step;
+  return currentS;
 }
 
 export { initialState, calculateWinner, currentMove, move, jumpTo };
