@@ -55,7 +55,7 @@ describe('Tic Tac Toe', () => {
       expect(currentMove(s2)).toEqual(s2.history[s2.stepNumber]);
     });
 
-    test.skip('history has unique ids', () => {
+    test('history has unique ids', () => {
       // arrange
       const ids = s2.history.map(hist => hist.id);
 
@@ -75,27 +75,27 @@ describe('Tic Tac Toe', () => {
       return currentMove(game).squares;
     };
 
-    test.skip('no winner in empty game', () => {
+    test('no winner in empty game', () => {
       const emptyGameSequence : SquareArray = Array(0).fill(null);
       expect(calculateWinner(emptyGameSequence)).toBeNull();
     });
 
-    test.skip('return "null" while there is no winner', () => {
+    test('return "null" while there is no winner', () => {
       const currentGame = playSequence([0, 4, 3, 1, 7]);
       expect(calculateWinner(currentGame)).toBeNull();
     });
 
-    test.skip('return the player who as three in a row', () => {
+    test('return the player who as three in a row', () => {
       const rowSeq = playSequence([0, 3, 1, 4, 2]);
       expect(calculateWinner(rowSeq)).toEqual('X');
     });
 
-    test.skip('return the player who has three in a column', () => {
+    test('return the player who has three in a column', () => {
       const columnSeq = playSequence([0, 1, 6, 4, 2, 7]);
       expect(calculateWinner(columnSeq)).toEqual('O');
     });
 
-    test.skip('return the player who has three in a diagonal', () => {
+    test('return the player who has three in a diagonal', () => {
       const diagSeq = playSequence([0, 3, 4, 2, 8]);
       expect(calculateWinner(diagSeq)).toEqual('X');
     });
@@ -111,7 +111,7 @@ describe('Tic Tac Toe', () => {
       t1 = jumpTo(s1.stepNumber, s2);
     });
 
-    test.skip('turn back stepNumber', () => {
+    test('turn back stepNumber', () => {
       expect(t1.stepNumber).toEqual(s1.stepNumber);
     });
 

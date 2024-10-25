@@ -1,57 +1,60 @@
+import Square from "./components/Square";
 import { GameState } from "./types";
-const calculateWinner = () => {throw new Error('Not implemented');}
-const currentMove = () => {throw new Error('Not implemented');}
-const jumpTo = () => {throw new Error('Not implemented');}
 
+const jumpTo = () => {
+  throw new Error("Not implemented");
+};
 
-function initialState(){
+function initialState() {
   const stepNumber = 0;
   const xIsNext = true;
   const squares: string[] = Array(9).fill(null);
-  const history = [{
-    squares
-  }]
-  return {history, stepNumber,xIsNext};
+  const history = [
+    {
+      squares,
+    },
+  ];
+  return { history, stepNumber, xIsNext };
+}
+function currentMove(s: GameState){
+  return s.history[s.stepNumber]
 }
 
-function move(pm: number, s: GameState): GameState{
+function move(pm: number, s: GameState): GameState {
   const newHistory = [...s.history];
   const curretSquare = newHistory[s.stepNumber].squares.slice();
-
-  curretSquare[pm] = s.xIsNext ? "X" : "O"
+  curretSquare[pm] = s.xIsNext ? "X" : "O";
   newHistory.push({
     squares: curretSquare,
     id: newHistory.length,
   });
-  return{
+  return {
     history: newHistory,
-    stepNumber: s.stepNumber +1,
+    stepNumber: s.stepNumber + 1,
     xIsNext: !s.xIsNext,
-
-  }}
-
-    
-
-
-
-
-
-/*
-  if (pm === 0){
-    s.stepNumber ++;
-    s.stepNumber ++;
+  };
+}
+function calculateWinner(s: Array<string>){
+  if(s.length === 0){
+    return null
   }
-  if (pm %2 === 0){
-    s.stepNumber ++;
+  const winningCombinations = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 4, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [2, 4, 6]
+  ];
+  for (let i = 0; i < winningCombinations.length; i++){
+    const [a, b, c] = winningCombinations[i];
+    if(s[a] && s[a] === s[b] && s[a] === s[c]){
+      return s[a];
+    }
   }
-  else{
-    s.stepNumber  --;
-  }
-  return s
+  return null;
+} 
 
-*/
-
-
-export {
-  initialState, calculateWinner, currentMove, move, jumpTo,
-};
+export { initialState, calculateWinner, currentMove, move, jumpTo };
