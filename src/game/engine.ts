@@ -1,9 +1,4 @@
-import Square from "./components/Square";
 import { GameState } from "./types";
-
-const jumpTo = () => {
-  throw new Error("Not implemented");
-};
 
 function initialState() {
   const stepNumber = 0;
@@ -56,5 +51,9 @@ function calculateWinner(s: Array<string>){
   }
   return null;
 } 
+function jumpTo(step:number, currentS:GameState){
+  currentS.stepNumber = step
+  return currentS
+}
 
 export { initialState, calculateWinner, currentMove, move, jumpTo };

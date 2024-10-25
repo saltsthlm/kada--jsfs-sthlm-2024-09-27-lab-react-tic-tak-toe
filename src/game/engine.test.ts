@@ -115,11 +115,11 @@ describe('Tic Tac Toe', () => {
       expect(t1.stepNumber).toEqual(s1.stepNumber);
     });
 
-    test.skip('keep history', () => {
+    test('keep history', () => {
       expect(t1.history).toEqual(s2.history);
     });
 
-    test.skip('show current move', () => {
+    test('show current move', () => {
       expect(currentMove(t1)).toEqual(s1.history[s1.stepNumber]);
     });
   });
